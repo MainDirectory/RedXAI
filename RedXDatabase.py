@@ -109,5 +109,5 @@ def static_files(filename):
 
 if __name__ == '__main__':
     import os
-    port = int(os.getenv("PORT", 5000))
+    port = int(os.getenv("PORT", 3306))
     app.run(host='0.0.0.0', port=port, debug=False)
