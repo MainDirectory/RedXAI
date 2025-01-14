@@ -8,7 +8,7 @@ db_config = {
     "host": os.getenv("MYSQLHOST", "mysql.railway.internal"),
     "port": int(os.getenv("MYSQLPORT", 3306)),
     "user": os.getenv("MYSQLUSER", "root"),
-    "password": os.getenv("MYSQLPASSWORD", "Switch1998000$"),
+    "password": os.getenv("MYSQLPASSWORD", "switch1998000$"),
     "database": os.getenv("MYSQLDATABASE", "RedXDatabase")
 }
 
