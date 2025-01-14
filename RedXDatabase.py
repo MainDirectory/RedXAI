@@ -4,10 +4,10 @@ import pymysql
 # MySQL Configuration using environment variables
 db_config = {
     "host": os.getenv("MYSQLHOST", "mysql.railway.internal"),  # Railway internal host
-    "port": int(os.getenv("MYSQLPORT", 3306)),                # Default MySQL port
-    "user": os.getenv("MYSQLUSER", "root"),                   # User for MySQL connection
-    "password": os.getenv("MYSQLPASSWORD", "switch1998000$"), # Password for MySQL user
-    "database": os.getenv("MYSQLDATABASE", "RedXDatabase")    # Database name
+    "port": int(os.getenv("MYSQLPORT", 3306)),
+    "user": os.getenv("MYSQLUSER", "root"),
+    "password": os.getenv("MYSQLPASSWORD", "switch1998000$"),
+    "database": os.getenv("MYSQLDATABASE", "RedXDatabase")
 }
 
 def get_db_connection():
