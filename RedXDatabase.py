@@ -1,12 +1,12 @@
-import pymysql
 import os
+import pymysql
 
 db_config = {
-    "host": os.getenv("MYSQLHOST"),
-    "port": int(os.getenv("MYSQLPORT", 3306)),
-    "user": os.getenv("MYSQLUSER"),
-    "password": os.getenv("MYSQLPASSWORD"),
-    "database": os.getenv("MYSQLDATABASE")
+    "host": os.getenv("MYSQLHOST", "mysql.railway.internal"),  # Default Railway host
+    "port": int(os.getenv("MYSQLPORT", 3306)),                # Default MySQL port
+    "user": os.getenv("MYSQLUSER", "root"),                   # Default Railway user
+    "password": os.getenv("MYSQLPASSWORD", "Switch1998000$"),  # Replace 'your-password' with Railway's MYSQLPASSWORD value
+    "database": os.getenv("MYSQLDATABASE", "RedXDatabase")         # Default Railway database name
 }
 
 def get_db_connection():
@@ -25,7 +25,7 @@ def test_database_connection():
     if connection:
         try:
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM users LIMIT 1;")
+                cursor.execute("SELECT * FROM users LIMIT 1;")  # Adjust if your table name is different
                 result = cursor.fetchone()
                 if result:
                     print(f"First record in 'users' table: {result}")

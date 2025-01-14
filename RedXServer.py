@@ -10,6 +10,28 @@ app.secret_key = '4706601636'  # Replace with a secure key
 test_database_connection()
 
 # Route for login page
+@app.route('/db-contents')
+def db_contents():
+    connection = get_db_connection()
+    if connection:
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT * FROM users;")  # Replace 'users' with your table name
+                results = cursor.fetchall()
+                
+                # Create an HTML table to display the results
+                html = "<h1>Database Contents</h1><table border='1'><tr><th>ID</th><th>Username</th><th>Role</th></tr>"
+                for row in results:
+                    html += f"<tr><td>{row[0]}</td><td>{row[1]}</td><td>{row[2]}</td></tr>"
+                html += "</table>"
+                return html
+        except Exception as e:
+            return f"<h1>Error fetching data: {str(e)}</h1>"
+        finally:
+            connection.close()
+    else:
+        return "<h1>Failed to connect to the database.</h1>"
+
 @app.route('/')
 def login():
     return render_template('Login.html')
