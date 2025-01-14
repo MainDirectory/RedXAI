@@ -2,14 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 import hashlib
 from RedXDatabase import get_db_connection, test_database_connection
 
-
 app = Flask(__name__, static_folder='Markup', template_folder='Markup')
 app.secret_key = '4706601636'  # Replace with a secure key
 
 # Test the database connection on app startup
 test_database_connection()
 
-# Route for login page
 @app.route('/db-contents')
 def db_contents():
     connection = get_db_connection()
@@ -62,7 +60,6 @@ def handle_login():
     else:
         return "<h1>Database Connection Failed</h1>"
 
-# Dashboard route (example)
 @app.route('/dashboard')
 def dashboard():
     if 'username' in session:
@@ -77,5 +74,5 @@ def static_files(filename):
 
 if __name__ == '__main__':
     import os
-    port = int(os.getenv("PORT", 5000))
+    port = int(os.getenv("PORT", 5000))  # Use port 5000 or the one specified by your host
     app.run(host='0.0.0.0', port=port, debug=False)
