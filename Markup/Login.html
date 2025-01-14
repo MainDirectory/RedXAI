@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red X Login</title>
+  <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="Assets/RedX.png" alt="Red X Logo">
+    </div>
+    <form class="login-form">
+      <h2>Login</h2>
+      <div class="input-group">
+        <input type="text" id="username" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Popup Box -->
+  <div class="popup-box" id="popupBox">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <h3>MDirectoryMatic</h3>
+    <p>"The crypto token for developers and gamers by a developer."</p>
+    <button onclick="window.open('https://polyscan-link-here.com', '_blank')">View on Polyscan</button>
+    <button onclick="window.open('https://pool-link-here.com', '_blank')">Invest Now</button>
+  </div>
+
+  <script>
+    function closePopup() {
+      document.getElementById('popupBox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
